@@ -1,4 +1,4 @@
-import logo from './assets/Logo.jpg'
+import logo from './assets/Logo.png'
 import Main from './pages/Main/Main'
 import Header from './components/Header'
 import './App.css';
