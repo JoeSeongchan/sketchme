@@ -1,4 +1,6 @@
-import logo from './logo.svg';
+import logo from './assets/Logo.jpg'
+import Main from './pages/Main/Main'
+import Header from './components/Header'
 import './App.css';
 
 function App() {
@@ -9,7 +11,9 @@ function App() {
         <p>
           Sketch-ME^^!!!!
         </p>
+        <Header/>
       </header>
+      <Main/>
     </div>
   );
 }
