@@ -1,6 +1,7 @@
 import logo from './assets/Logo.png'
 import Main from './pages/Main/Main'
-import Header from './components/Header'
+import Header from './components/common/Header'
+import BaseIconButton from './components/common/BaseIconButton';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Header/>
       </header>
       <Main/>
+      <BaseIconButton icon="cancel" color="purple"/>
     </div>
   );
 }
