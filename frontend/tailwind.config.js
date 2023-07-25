@@ -1,5 +1,5 @@
 module.exports = {
-  // 템플릿 파일의 경로 설정 👀
+  // 템플릿 파일의 경로 설정
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
   ],
@@ -7,6 +7,7 @@ module.exports = {
     extend: {},
     colors: {
       white: '#ffffff',
+      grey: '#D7D7D7',
       black: '#18181B',
       primary: '#7532A8',
       primary_2: '#A77CC7',

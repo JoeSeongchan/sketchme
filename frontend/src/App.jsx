@@ -6,6 +6,7 @@ import BaseIconBtnPurple from './components/common/BaseIconBtnPurple';
 import BaseIconBtnWhite from './components/common/BaseIconBtnWhite';
 import BaseBtnPurple from './components/common/BaseBtnPurple';
 import BaseBtnWhite from './components/common/BaseBtnWhite';
+import BaseIconBtnGrey from './components/common/BaseIconBtnGrey';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <BaseIconBtnWhite icon="message" message="문의하기" />
       <BaseBtnPurple message="예약하기" />
       <BaseBtnWhite message="예약하기" />
+      <BaseIconBtnGrey icon="calendar" message="수정하기" />
     </div>
   );
 }
