@@ -1,7 +1,9 @@
-import logo from './assets/Logo.png'
-import Main from './pages/Main/Main'
-import Header from './components/common/Header'
-import BaseIconButton from './components/common/BaseIconButton';
+import React from 'react';
+import logo from './assets/Logo.png';
+import Main from './pages/Main/Main';
+import Header from './components/common/Header';
+import BaseIconBtnPurple from './components/common/BaseIconBtnPurple';
+import BaseIconBtnWhite from './components/common/BaseIconBtnWhite';
 import './App.css';
 
 function App() {
@@ -12,10 +14,12 @@ function App() {
         <p>
           Sketch-ME^^!!!!
         </p>
-        <Header/>
+        <Header />
       </header>
-      <Main/>
-      <BaseIconButton icon="cancel" color="purple"/>
+      <Main />
+      <BaseIconBtnPurple icon="message" message="문의하기" width="20" height="20" />
+      <BaseIconBtnWhite icon="message" message="문의하기" width="20" height="20" />
+
     </div>
   );
 }
