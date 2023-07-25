@@ -4,6 +4,8 @@ import Main from './pages/Main/Main';
 import Header from './components/common/Header';
 import BaseIconBtnPurple from './components/common/BaseIconBtnPurple';
 import BaseIconBtnWhite from './components/common/BaseIconBtnWhite';
+import BaseBtnPurple from './components/common/BaseBtnPurple';
+import BaseBtnWhite from './components/common/BaseBtnWhite';
 import './App.css';
 
 function App() {
@@ -17,9 +19,10 @@ function App() {
         <Header />
       </header>
       <Main />
-      <BaseIconBtnPurple icon="message" message="문의하기" width="20" height="20" />
-      <BaseIconBtnWhite icon="message" message="문의하기" width="20" height="20" />
-
+      <BaseIconBtnPurple icon="message" message="문의하기" />
+      <BaseIconBtnWhite icon="message" message="문의하기" />
+      <BaseBtnPurple message="예약하기" />
+      <BaseBtnWhite message="예약하기" />
     </div>
   );
 }
