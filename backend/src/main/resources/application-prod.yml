@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: ${PROD_DB_URL}
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${PROD_DB_USERNAME}
+    password: ${PROD_DB_PW}
+
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: never
+      
+server:
+  port: 8080
