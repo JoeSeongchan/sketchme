@@ -7,7 +7,7 @@ module.exports = {
     extend: {},
     colors: {
       white: '#ffffff',
-      grey: '#D7D7D7',
+      grey: '#E6E6E6',
       black: '#18181B',
       primary: '#7532A8',
       primary_2: '#A77CC7',
@@ -16,5 +16,7 @@ module.exports = {
       secondary: '#22C55E80',
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 };
