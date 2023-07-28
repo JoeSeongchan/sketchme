@@ -3,25 +3,19 @@ spring:
     default: local
 
 ---
+
 spring:
-  config:
-    activate:
-      on-profile: test
+  profiles:
+    active: prod
 
-  jpa:
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+---
 
-  datasource:
-    url: jdbc:h2:mem:~/testdb;NON_KEYWORDS=USER
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+spring:
+  profiles:
+    active: dev
 
-  sql:
-    init:
-      mode: never
+---
+
+spring:
+  profiles:
+    active: local
