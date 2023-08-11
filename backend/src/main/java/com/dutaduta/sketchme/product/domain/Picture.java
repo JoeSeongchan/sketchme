@@ -27,6 +27,8 @@ public class Picture extends BaseEntity {
     private boolean isDeleted;
     @Column(name = "url", length = 1024)
     private String url;
+    @Column(name = "thumbnail_url", length = 1024)
+    private String thumbnailUrl;
     @Column(name = "is_drawn_in_app")
     private boolean isDrawnInApp;
     @ManyToOne
@@ -44,4 +46,15 @@ public class Picture extends BaseEntity {
 
     @OneToMany(mappedBy = "picture")
     private List<PictureHashtag> hashtagList;
+
+    public void updateImgUrl(String url, String thumbnailUrl){
+        this.url = url;
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public void updateIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public void updateIsOpen(Boolean isOpen) {this.isOpen = isOpen; }
 }

@@ -3,9 +3,13 @@ package com.dutaduta.sketchme.member.domain;
 import com.dutaduta.sketchme.common.domain.Hashtag;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ArtistHashtag {
     @Id
@@ -19,4 +23,8 @@ public class ArtistHashtag {
     @ManyToOne
     @JoinColumn(name = "hashtag_id")
     private Hashtag hashtag;
+
+    public static ArtistHashtag of(Artist artist, Hashtag hashtag) {
+        return ArtistHashtag.builder().artist(artist).hashtag(hashtag).build();
+    }
 }

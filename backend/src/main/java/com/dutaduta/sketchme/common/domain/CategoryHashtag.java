@@ -20,4 +20,8 @@ public class CategoryHashtag {
     @ManyToOne
     @JoinColumn(name = "hashtag_id")
     private Hashtag hashtag;
+
+    public static CategoryHashtag of(Category category, Hashtag hashtag) {
+        return CategoryHashtag.builder().category(category).hashtag(hashtag).build();
+    }
 }
