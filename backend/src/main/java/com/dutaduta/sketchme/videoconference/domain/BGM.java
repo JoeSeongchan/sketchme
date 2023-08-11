@@ -11,11 +11,10 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BGM {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name", length = 1024)
+    @Column(length = 1024)
     private String name;
-    @Column(name = "url", length = 1024)
-    private String url;
+    @Column(length = 1024)
+    private String uri;
 }

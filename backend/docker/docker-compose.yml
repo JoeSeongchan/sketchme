@@ -1,0 +1,59 @@
+version: '3.1'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    restart: unless-stopped
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "chat:1:1,meeting:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+
+  redis_container:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    # 컨테이너 종료시 재시작 여부 설정
+    restart: always
+    command: redis-server /usr/local/conf/redis.conf
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb:11
+    restart: always
+    # 환경에 따라 변경
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./db/conf.d:/etc/mysql/conf.d"
+      - "./data:/var/lib/mysql"
+    environment:
+      # 정의하지 않으면 실행 시, 에러가 발생합니다.
+      - "MYSQL_ROOT_PASSWORD=bootuser"
+      - "MYSQL_DATABASE=bootex"
+      # 컨테이너 내의 시스템 타임존을 우리나라에 맞게 설정합니다.
+      - "TZ=Asia/Seoul"
+    command:
+      # 위 명령어를 사용하지 않으면, 일부 설정이 latin으로 설정됩니다.
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
