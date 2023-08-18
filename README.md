@@ -41,3 +41,5 @@
 ![image](/uploads/b4f6710bd410b76abce2c8da07739322/image.png)
 ## 미니 채팅페이지
 ![image](/uploads/330c26f34737d57a0338c0988c24e752/image.png)
+## 그림 그리는화면
+![image](/uploads/2a7564c72dcfcd705ad58be7f3292ec4/image.png)
