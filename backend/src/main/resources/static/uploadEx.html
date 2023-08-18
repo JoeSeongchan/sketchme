@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <input name="uploadFiles" type = "file" multiple>
+    <button class="uploadBtn">Upload</button>
+
+    <!--  업로드된 이미지 보여주기 위한 부분  -->
+    <div class="uploadResult">
+
+    </div>
+
+    <script>
+        // Upload 버튼 클릭했을 때 동작
+        $('.uploadBtn').click(function() {
+            // FormData 생성
+            var formData = new FormData();
+            var inputFile = $("input[type = 'file']");
+            var files = inputFile[0].files;
+
+            for(var i = 0; i < files.length; i++) {
+                console.log(files[i]);
+                // controller에서 사용하는 uploadFiles라는 이름으로 파일 데이터 추가
+                formData.append("uploadFiles", files[i]);
+            }
+
+            // 실제 업로드 부분
+            $.ajax({
+                url: 'upload',
+                processData: false,
+                contentType: false, // 파일 업로드는 multipart/form-data 타입을 사용하기 위함
+                data: formData,
+                type: 'POST',
+                dataType: 'json',
+                success: function(result) {
+                    console.log(result);
+                    // 화면 처리
+                    showUploadedImages(result);
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus);
+                }
+            }); // $.ajax
+        });
+
+        function showUploadedImages(arr) {
+            console.log(arr);
+
+            var divArea = $(".uploadResult");
+
+            var str = "";
+
+            for(var i = 0; i < arr.length; i++) {
+                // <button> 태그의 data-name이라는 커스텀 속성을 지정해서 버튼을 클릭했을 때 삭제해야 하는 파일의 이름을 알아내는 용도로 사용
+                str += "<div>";
+                str += "<img src = '/display?fileName="+arr[i].thumbnailURL + "'>";
+                str += "<button class='removeBtn' data-name='"+arr[i].imageURL+"'>REMOVE</button>";
+                str += "<button class='downloadBtn' data-name='"+arr[i].imageURL+"'>DOWNLOAD</button>";
+                str += "</div>";
+            }
+
+            divArea.append(str);
+        }
+
+
+        // Remove 버튼 클릭했을 때 동작
+        $(".uploadResult").on("click", ".removeBtn", function(e){
+            var target = $(this);
+            var fileName = target.data("name");
+            var targetDiv = $(this).closest("div");
+
+            console.log(fileName);
+
+            $.post('/removeFile', {fileName: fileName}, function (result) {
+                console.log(result);
+                if(result == true) {
+                    targetDiv.remove();
+                }
+            })
+        })
+
+        // Download 버튼 클릭했을 때 동작
+        $(".uploadResult").on("click", ".downloadBtn", function(e){
+            var target = $(this);
+            var imgURL = target.data("name");
+
+            console.log(imgURL);
+
+            var downloadLink = document.createElement("a");
+            downloadLink.href = '/download?imgURL=' + imgURL;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        })
+    </script>
+</body>
+</html>

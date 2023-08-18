@@ -1,0 +1,70 @@
+# application-test.yml
+spring:
+  config:
+    activate:
+      on-profile: "test"
+    import:
+      - test.env[.properties]
+
+
+  servlet:
+    multipart:
+      enabled: true
+      location: ${FILESERVER_LOCATION}
+      max-request-size: 30MB
+      max-file-size: 10MB
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: org.h2.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PW}
+
+  main:
+    allow-bean-definition-overriding:
+      true
+
+  cache:
+    type: redis
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+
+
+jwt:
+  secretKey: ${JWT_SECRETKEY}
+
+server:
+  port: 8000
+  servlet:
+    context-path: /dev/api
+
+openvidu:
+  api:
+    url: ${OPENVIDU_URL}
+    secret: ${OPENVIDU_SECRET}
+
+kafka:
+  broker: ${KAFKA_BROKER}
+
+kakao:
+  redirect-url: ${KAKAO_REDIRECT_URL}
+  openkey-url: ${KAKAO_OPENKEY_URL}
+  token-url: ${KAKAO_TOKEN_URL}
+  rest-api-key: ${REST_API_KEY}
+  iss: ${KAKAO_ISS}
+
+login:
+  token-redirect-url: ${TOKEN_REDIRECT_URL}

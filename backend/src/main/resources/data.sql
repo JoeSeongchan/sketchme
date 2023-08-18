@@ -1,0 +1,78 @@
+-- INSERT INTO hashtag (id, name)
+-- VALUES (1, "1인"), (2, "커플"), (3, "가족"), (4, "반려동물"), (5, "효도")
+--      , (6, "기념일"), (7, "사실적인"), (8, "따뜻한"), (9, "귀여운"), (10, "웃긴")
+--      , (11, "산뜻한"), (12, "즐거운"), (13, "자연스러운");
+--
+-- INSERT INTO artist(id, is_deactivated, is_open, nickname, profile_img_url, profile_thumbnail_img_url, description)
+-- VALUES (1, 1, 0, "유댕둥당_작가_비활성", "PROFILEUSER%5C2023%5C08%5C12%5Co_1.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_1.jpg", "그림 그려드리는 유댕둥당 작가입니다"),
+--        (2, 0, 1, "유댕둥당_작가", "PROFILEUSER%5C2023%5C08%5C12%5Co_1.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_1.jpg", "그림 그려드리는 유댕둥당 작가입니다"),
+--        (3, 0, 1, "작가1(사용자1)", "PROFILEUSER%5C2023%5C08%5C12%5Co_3.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_3.jpg", "작가1(사용자1) 입니다"),
+--        (4, 0, 1, "작가2(사용자2)", "PROFILEUSER%5C2023%5C08%5C12%5Co_4.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_4.jpg", "작가2(사용자2) 입니다");
+--
+--
+-- INSERT INTO users(id, description, email, is_deleted, is_debuted, is_logined, is_open, nickname, oauth_id, profile_img_url, profile_thumbnail_img_url, artist_id)
+-- VALUES (1, "안녕하세요^^", "nikki601@naver.com", 0, 1, 0, 1, "유댕둥당", 2960177717, "PROFILEUSER%5C2023%5C08%5C12%5Co_1.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_1.jpg", 2),
+--        (2, "안녕하세요^^", "email", 1, 0, 0, 0, "탈퇴한 사용자", 1111111111, "PROFILEUSER%5C2023%5C08%5C12%5Co_2.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_2.jpg", null),
+--        (3, "안녕하세요^^", "email", 0, 1, 0, 1, "사용자1", 2222222222, "PROFILEUSER%5C2023%5C08%5C12%5Co_3.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_3.jpg", 3),
+--        (4, "안녕하세요^^", "email", 0, 1, 0, 1, "사용자2", 3333333333, "PROFILEUSER%5C2023%5C08%5C12%5Co_4.jpg", "PROFILEUSER%5C2023%5C08%5C12%5Cs_4.jpg", 4);
+--
+--
+-- INSERT INTO category(id, is_deleted, is_open, approximate_price, artist_id, name, description)
+-- VALUES (1, 0, 1, 5000, 2, "허유정 작가의 그림교실", "개성이 듬뿍 담긴 그림 그려드립니다"),
+--        (2, 1, 0, 5000, 2, "삭제된 카테고리", "개성이 듬뿍 담긴 그림 그려드립니다"),
+--        (3, 0, 1, 100, 2, "허유정 작가의 재능기부", "단돈 100원에 그림 그려드립니다"),
+--        (4, 0, 0, 100, 2, "비공개 카테고리", "단돈 100원에 그림 그려드립니다"),
+--        (5, 0, 1, 200000, 2, "허유정 작가의 대박그림", "이건 프리미엄이라 20만원"),
+--        (6, 0, 1, 10000, 3, "카테고리6_작가3", "카테고리6_작가3의 카테고리입니다."),
+--        (7, 0, 1, 10000, 3, "카테고리7_작가3", "카테고리7_작가3의 카테고리입니다."),
+--        (8, 0, 1, 2000, 4, "카테고리8_작가4", "카테고리8_작가4의 카테고리입니다."),
+--        (9, 0, 1, 0, 4, "카테고리9_작가4", "카테고리9_작가3의 카테고리입니다.");
+--
+-- INSERT INTO meeting(id, is_open, artist_id, category_id, exact_price, start_date_time, user_id, content)
+-- VALUES (1, false, 2, 5, 200000, "2023-08-18T10:00:00", 1, "아무리 그래도 10만원은 너무 비싼데... 10만원에 가능한가요??"),
+--        (2, true, 2, 4, 100, "2023-08-17T13:00:00", 1, "진짜 100원인건가요? 이왕 재능기부면 공짜로 해주시지..."),
+--        (3, true, 4, 8, 2000, "2023-08-16T20:30:00", 1, "카테고리8_작가4의 카테고리에 유댕둥당이 신청합니다.");
+--
+--
+-- INSERT INTO artist_hashtag(id, artist_id, hashtag_id)
+-- VALUES (1, 2, 2),
+--        (2, 2, 4),
+--        (3, 2, 6),
+--        (4, 2, 8),
+--        (5, 2, 9),
+--        (6, 2, 13),
+--        (7, 3, 1),
+--        (8, 3, 10),
+--        (9, 3, 12),
+--        (10, 4, 5),
+--        (11, 4, 3);
+--
+-- INSERT INTO category_hashtag(id, category_id, hashtag_id)
+-- VALUES (1, 1, 2),
+--        (2, 2, 4),
+--        (3, 3, 6),
+--        (4, 4, 8),
+--        (5, 5, 9),
+--        (6, 6, 13),
+--        (7, 7, 1),
+--        (8, 8, 10),
+--        (9, 8, 12),
+--        (10, 1, 5),
+--        (11, 1, 3);
+--
+--
+-- INSERT INTO review(id, rating, content, is_deleted, artist_id, meeting_id, user_id)
+-- VALUES (1, 5.0, "최고의 그림입니다. 작가분께서도 너무 친절하게 잘 해주셔서 정말 감사합니다. 덕분에 좋은 추억 남겼습니다🥰 다음에 또 이용하고 싶어요!!", 0,  2, 1, 1),
+--        (2, 2.5, "100원만 받으시더니.. 100원어치만 그려주셨습니다..😭", 0,  2, 2, 1),
+--        (3, 4.5, "미팅3(카테고리8_작가4_사용자1)에 유댕둥당이 리뷰를 작성합니다.", 0,  4, 3, 1);
+--
+-- INSERT INTO picture(id, is_deleted, is_drawn_in_app, is_open, artist_id, category_id, meeting_id, user_id, url, thumbnail_url)
+-- VALUES (6, 0, 1, 1, 2, 4, 2, 1, "PICTURE%5C2023%5C08%5C11%5Co_6.png", "PICTURE%5C2023%5C08%5C11%5Cs_6.png"),
+--        (7, 0, 1, 1, 4, 8, 3, 1, "PICTURE%5C2023%5C08%5C11%5Co_7.jpg", "PICTURE%5C2023%5C08%5C11%5Cs_7.jpg"),
+--        (8, 0, 0, 1, 2, 1, null, null, "PICTURE%5C2023%5C08%5C11%5Co_8.gif", "PICTURE%5C2023%5C08%5C11%5Cs_8.gif");
+
+
+INSERT INTO meeting(id, is_open, artist_id, category_id, exact_price, start_date_time, created_date_time, user_id, content)
+VALUES (4, true, 5, 10, 100, "2023-08-13T10:00:00", "2023-08-12T23:00:00", 6, "디스코드에서 접선하시죠"),
+       (5, false, 5, 10, 100, "2023-08-17T13:00:00", "2023-08-12T23:00:00", 6, "이건 비공개"),
+       (6, true, 5, 11, 7832, "2023-08-16T20:30:00", "2023-08-12T23:00:00", 5, "1원 단위로 받으시는 이유가 무엇인가요. 카테고리 설명도 성의가 없네요.");
