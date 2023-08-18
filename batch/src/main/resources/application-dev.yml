@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+    import:
+      - batch-dev.env[.properties]
+
+  datasource:
+    url: ${DEV_DB_URL}
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${DEV_DB_USERNAME}
+    password: ${DEV_DB_PW}
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: never
+  kafka:
+    producer:
+      properties:
+        spring:
+          json:
+            add:
+              type:
+                headers: false
+
+kafka:
+  broker: ${KAFKA_BROKER}
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: warn

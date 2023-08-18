@@ -1,0 +1,18 @@
+env:
+  browser: true
+  es6: true
+  node: true
+
+rules:
+  linebreak-style: 0
+  import/no-extraneous-dependencies: "off"
+  react/prop-types: "off"
+
+extends:
+  - airbnb
+
+settings:
+  import/resolver:
+    node:
+      paths:
+        - src

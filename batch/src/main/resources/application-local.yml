@@ -1,0 +1,39 @@
+spring:
+  config:
+    activate:
+      on-profile: "local"
+    import:
+      - batch-local.env[.properties]
+
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PW}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: never
+  kafka:
+    producer:
+      properties:
+        spring:
+          json:
+            add:
+              type:
+                headers: false
+
+kafka:
+  broker: ${KAFKA_BROKER}
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: warn

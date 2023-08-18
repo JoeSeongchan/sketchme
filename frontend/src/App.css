@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.input {
+  accent-color: "#7532A8";
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 폰트 관련 */
+@font-face {
+  font-family: "LogoLetter";
+  src: url("./fonts/LogoFont.ttf");
+}
+@font-face {
+  font-family: "Cute1";
+  src: url("./fonts/Cute1.ttf");
+}
+
+@font-face {
+  font-family: "Cute2";
+  src: url("./fonts/Cute2.ttf");
+}
+
+@font-face {
+  font-family: "Gothic1";
+  src: url("./fonts/Gothic1.ttf");
+}
+
+@font-face {
+  font-family: "Gothic2";
+  line-height: 2;
+  src: url("./fonts/Gothic2.ttf");
+}
+
+@font-face {
+  font-family: "Gothic3";
+  src: url("./fonts/Gothic3.ttf");
+}
+
+@font-face {
+  font-family: "Main1";
+  line-height: 2;
+  src: url("./fonts/Main1.ttf");
+}
+
+@font-face {
+  font-family: "Main2";
+  src: url("./fonts/Main2.ttf");
+}
+
+#LogoLetter {
+  font-family: "LogoLetter";
+  font-size: 34px;
+}
+
+.Cute1 {
+  font-family: "Cute1";
+}
+
+.Cute2 {
+  font-family: "Cute2";
+}
+
+.Gothic1 {
+  font-family: "Gothic1";
+}
+
+.Gothic2 {
+  font-family: "Gothic2";
+  /* font-size: 18px; */
+}
+
+.Gothic3 {
+  font-family: "Gothic3";
+}
+
+.Main1 {
+  font-family: "Main1";
+}
+
+.Main2 {
+  font-family: "Main2";
+  letter-spacing: 0.3px;
+}
