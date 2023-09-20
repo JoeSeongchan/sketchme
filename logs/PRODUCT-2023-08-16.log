@@ -1,0 +1,12 @@
+2023-08-16 21:25:12.255 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:25:12.710 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif
+2023-08-16 21:26:28.504 [http-nio-8000-exec-4] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:26:28.616 [http-nio-8000-exec-4] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif
+2023-08-16 21:28:23.795 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:28:24.191 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif
+2023-08-16 21:32:32.065 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:32:32.515 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif
+2023-08-16 21:39:22.138 [http-nio-8000-exec-3] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:39:24.157 [http-nio-8000-exec-3] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif
+2023-08-16 21:45:54.121 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - 라이브 사진 위치: ./fileserver/LIVE-PICTURE/4
+2023-08-16 21:45:54.595 [http-nio-8000-exec-2] INFO  c.d.s.p.service.TimelapseService - GIF 파일 생성 완료: ./fileserver/TIMELAPSE/4/timelapse.gif

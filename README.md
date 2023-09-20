@@ -1,210 +1,85 @@
-# 🖼️ 화상 캐리커처 플랫폼 <Sketchme>
-
-![](img/logo.png)
-
+화상 캐리커처 플랫폼 Sketch Me
 # Link
+[Notion](https://www.notion.so/0f2e0b26976d46ad97065bbc6050cd99?pvs=21)
 
-- [Visit Project Repository](https://lab.ssafy.com/s09-webmobile1-sub2/S09P12A406)
-- [Visit Notion Page](https://www.notion.so/0f2e0b26976d46ad97065bbc6050cd99?pvs=21)
+# Tech Stack
+- Spring Boot Framework 3.1.2
+- Java 17
+- Spring Batch 
+- JPA, JPQL
+- Docker 
+- Docker Compose
+- Shell Script
 
-# 목차
+# Concept
+작가가 고객의 얼굴을 보고 화상으로 캐리커처를 그리는 플랫폼
 
-# Guide
+# 주요 도메인 
+- 인증 / 인가
+- 갤러리 검색 / 조회 
+- 예약 
+- 채팅 
+- 챗봇
+- 화상 회의
 
-![](img/user-flow.jpg)
+# 주요 기능 
+- 갤러리 검색, 작가 검색 기능
+- 작가에게 예약 걸기 기능
+- 예약 수락, 거절 기능
+- 사용자 간 채팅 기능
+- 챗봇이 예약 알람과, 예약 시간 임박 알람을 보내는 기능 
+- 화상 회의실 기능
+- 회의실 안에서 멀티 레이어로 실시간으로 그림을 그릴 수 있는 기능
+- 그림을 그리는 과정을 타임랩스 GIF로 만들어 다운로드할 수 있고, Public하게 공개할 수 있는 기능
 
-### 고객
+# 기술 스택 세부 사항
+| 기능             | 활용한 기술 스택       |
+| ---------------- | ---------------------- |
+| 화상 회의실 기능 | OpenVidu |
+| 챗봇             | Spring Batch           |
+| 채팅             | Web Socket, Kafka      |
+| CICD             | Jenkins                |
+| Infra            | Docker, Docker Compose, Shell script                       |
 
-1. 로그인을 통해 메인 페이지에 입장한다.
-2. 대시보드 페이지 상단에 있는 작가 검색 창에 원하는 작가 또는 태그를 입력한다.
-3. 검색 결과 페이지에서 원하는 작가의 프로필을 클릭한다.
-4. 작가에게 채팅을 보내거나, 예약을 신청한다.
-5. 작가가 예약을 승인하면, 지정된 시간에 `봇` 이 예약 알림 채팅을 보낸다.
-6. 채팅 안에 있는 화상 회의 입장 버튼을 눌러 화상 회의에 입장한다.
+# 시연
+![](attachments/스케치1.gif)
+![](attachments/스케치2.gif)
 
-### 작가
+# 화면
+[Click](화면.md)
 
-1. 로그인을 통해 메인 페이지에 입장한다.
-2. 대시보드 페이지 상단에 있는 `작가 전환` 버튼을 누른다.
-3. 작가 전환 페이지에서 `작가 전환` 버튼을 눌러 작가로 전환한다.
-    1. 작가로 전환한 후에는 작가이면서, 고객으로 활동할 수 있다.
-4. 하단의 채팅 버튼을 눌러, 지금까지 도착한 채팅 목록을 볼 수 있다.
-5. 예약 신청 채팅이 도착하면, 예약을 승인할지 거부할지 여부를 결정할 수 있다.
-6. 작가가 예약을 승인하면, 지정된 시간에 `봇` 이 예약 알림 채팅을 보낸다.
-7. 채팅 안에 있는 화상 회의 입장 버튼을 눌러 화상 회의에 입장한다.
+# 아키텍처
+![](attachments/Pasted%20image%2020230921004011.png)
 
-## 시연
-<!-- ![](img/이용1.gif) -->
-<!-- ![](img/이용2.gif) -->
+# 역할
+| 이름   | 개발 분야  | 담당 파트                                      |      기타 역할           |
+| ------ | ---------- | ---------------------------------------------- | --------------- |
+| 김소희 | 프론트엔드 | OpenVidu 화상 회의                             | 팀장            |
+| 김영석 | 프론트엔드 | 전체적인 UI, UX 담당                           | 프론트엔드 리더 |
+| 박지원 | 프론트엔드 | 채팅 (웹소켓 통신)                             |                 |
+| 강병선 | 백엔드     | 채팅 (Kafka, 웹소켓 통신)                      |                 |
+| 조성찬 | 백엔드     | OpenVidu API 서버 개발 및 CICD 파이프라인 구축 |인프라, CICD                 |
+| 허유정 | 백엔드     | 유저 인증 / 인가 및 전체적인 API 개발          |                 |
 
-## Dev 서버 구동 방법
+# 앞으로의 계획
+| 할 일                                                                  | 실행 일자   | 담당 인원      |
+| ---------------------------------------------------------------------- | ----------- | -------------- |
+| Port And Adapter (헥사고날 아키텍처)로 리팩토링                        | 9/28 ~ 10/4 | 강병선, 조성찬 |
+| Domain, Application 계층을 테스트하는 코드 작성                        | 10/5 ~ 11/5 | 강병선, 조성찬 |
+| Jenkins 프리 스타일 프로젝트를 Pipeline 코드로 변경 (Pipeline As Code) | 11/6~11/13  | 조성찬               |
 
-아래 코드를 터미널에 붙여 넣습니다.
 
-### git clone
 
-git clone [https://github.com/JoeSeongchan/sketchme](https://github.com/JoeSeongchan/sketchme)
+# 포팅 방법
+아직 가이드되어 있지 않습니다. 리팩토링이 끝난 후 10/4에 업로드될 예정입니다.
 
-### Docker 설치
+# Wiki
+## 조성찬
+- [Docker Network란?](https://seongchancho.notion.site/Docker-network-67abcbd04cc94911b3256340dfb060e5?pvs=4)
+- [Web hook이란?](https://seongchancho.notion.site/Webhook-9120444731534229baf3980c51906e79?pvs=4)
+- [DI와 DIP, 그리고 IOC](https://seongchancho.notion.site/DI-IOC-DIP-6fdfee5909d0455cb48b61bba21351e4?pvs=4)
+- [JPA, QueryDSL 전략](https://seongchancho.notion.site/JPA-QueryDSL-d5237afe4558469db1f74e6fe0fc834e?pvs=4)
+- [중복제거의 위험성](https://seongchancho.notion.site/12cca9620d85451d9dfb11b63a8fd1e3?pvs=4)
+- [HTTP와 HTTPS](https://seongchancho.notion.site/HTTP-HTTPS-89e459042c7443578aabe18e87e3cdfb?pvs=4)
 
-```powershell
-# 기반 프로그램 설치 
-sudo apt update;
-sudo apt upgrade -y;
-sudo apt install apt-transport-https ca-certificates -y;
-sudo apt install curl gnupg-agent software-properties-common -y;
 
-# Docker의 공식 GPG 키 추가
-curl -fsSL <https://download.docker.com/linux/ubuntu/gpg> | sudo apt-key add;
-
-# Stable Repo 추가
-sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> bionic stable";
-
-# Update
-sudo apt update;
-
-# Docker 설치
-sudo apt install docker-ce docker-ce-cli containerd.io -y;
-
-# Docker 버전 확인 
-docker -v;
-```
-
-### Infra (Redis, MariaDB, Kafka, Zookeeper) 설치
-
-```powershell
-# Docker Compose 구성 파일 위치로 이동
-cd ./sketchme/infra;
-./i-infra.sh; # i-infra = install-infra
-```
-
-### Spring Batch 서버 설치
-
-```powershell
-# Docker Compose 구성 파일 위치로 이동
-cd ./sketchme/infra;
-./i-batch.sh; # i-batch = install-spring-batch
-```
-
-### OpenVidu 서버 설치
-
-```powershell
-# Docker Compose 구성 파일 위치로 이동
-cd ./sketchme/infra;
-./i-openvidu; # i-openvidu = install-openvidu
-```
-
-### Spring Boot API 서버 설치
-
-```powershell
-# Docker Compose 구성 파일 위치로 이동
-cd ./sketchme/infra;
-./i-api; # i-api = install-spring-boot-api
-```
-
-## 개발 배경
-
-![](img/12.jpg)
-
-![](img/5.jpg)
-
-## 아키텍처
-
-![](img/24.jpg)
-![](img/25.jpg)
-![](img/26.jpg)
-![](img/27.jpg)
-![](img/28.jpg)
-![](img/29.jpg)
-
-# 폴더 구조
-
-### Backend
-
-```
-src
- ┣ main
- ┃ ┣ java
- ┃ ┃ ┗ com
- ┃ ┃ ┃ ┗ dutaduta
- ┃ ┃ ┃ ┃ ┗ sketchme
- ┃ ┃ ┃ ┃ ┃ ┣ aop
- ┃ ┃ ┃ ┃ ┃ ┣ chat
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ config
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ constant
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ controller
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ dao
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ domain
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ dto
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ service
- ┃ ┃ ┃ ┃ ┃ ┣ common
- ┃ ┃ ┃ ┃ ┃ ┣ config
- ┃ ┃ ┃ ┃ ┃ ┣ file
- ┃ ┃ ┃ ┃ ┃ ┣ global
- ┃ ┃ ┃ ┃ ┃ ┣ mattermost
- ┃ ┃ ┃ ┃ ┃ ┣ meeting
- ┃ ┃ ┃ ┃ ┃ ┣ member
- ┃ ┃ ┃ ┃ ┃ ┣ product
- ┃ ┃ ┃ ┃ ┃ ┣ videoconference
- ┃ ┗ resources
- ┗ test
- ┃ ┗ java
- ┃ ┃ ┗ com
- ┃ ┃ ┃ ┗ dutaduta
- ┃ ┃ ┃ ┃ ┗ sketchme
- ┃ ┃ ┃ ┃ ┃ ┣ product
- ┃ ┃ ┃ ┃ ┃ ┣ review
- ┃ ┃ ┃ ┃ ┃ ┣ videoconference
-```
-
-## Skills
-
-### Frontend
-
-- React
-    - Recoil
-- Tailwind CSS
-- Axios
-
-### Backend
-
-- Java
-- Spring Boot
-- Spring Batch
-- Gradle
-- dependencies
-    - WebSocket
-    - Spring Security
-    - JPA
-    - Validation
-- MariaDB
-
-### Server
-
-- AWS EC2
-- Docker, Docker Compose
-- Jenkins
-
-## Team
-
-![](img/31.jpg)
-
-# Project Control
-
-Version Control: Git, GitLab
-
-Task Control: Notion, Figma, Jira, Mattermost
-
-## 기타
-
-[Convention](https://www.notion.so/Convention-5f47ce6130d24f02a0d3fe1fef1216db?pvs=21)
-
-[백엔드 합의 사항](https://www.notion.so/02dc13cb26164e278210d0b704c925b8?pvs=21)
-
-[프론트엔드 합의 사항](https://www.notion.so/f14e057737954697a389703a40485854?pvs=21)
-
-[산출물](https://www.notion.so/262d0891430441a0ac1bdd6dac023a52?pvs=21)
-
-[배운 것](https://www.notion.so/bef45e61c074477bb5aad59d168bab3a?pvs=21)
-
-[트러블 슈팅](https://www.notion.so/1acc1c22f7474a94986fae0767e742d8?pvs=21)

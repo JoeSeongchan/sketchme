@@ -1,0 +1,8 @@
+2023-08-17 10:59:27.783 [http-nio-8000-exec-9] INFO  c.d.s.c.c.TopicSubscriptionInterceptor - SUBSCRIBE
+2023-08-17 10:59:27.794 [http-nio-8000-exec-9] INFO  c.d.s.c.config.StompExceptionHandler - errorMessage
+2023-08-17 10:59:38.580 [http-nio-8000-exec-6] INFO  c.d.s.c.c.TopicSubscriptionInterceptor - SUBSCRIBE
+2023-08-17 10:59:38.581 [http-nio-8000-exec-6] INFO  c.d.s.c.config.StompExceptionHandler - errorMessage
+2023-08-17 10:59:43.054 [http-nio-8000-exec-1] INFO  c.d.s.c.c.TopicSubscriptionInterceptor - SUBSCRIBE
+2023-08-17 10:59:43.054 [http-nio-8000-exec-1] INFO  c.d.s.c.config.StompExceptionHandler - errorMessage
+2023-08-17 11:01:11.988 [http-nio-8000-exec-6] INFO  c.d.s.c.c.TopicSubscriptionInterceptor - SUBSCRIBE
+2023-08-17 11:01:11.999 [http-nio-8000-exec-6] INFO  c.d.s.c.config.StompExceptionHandler - errorMessage
