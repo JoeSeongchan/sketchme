@@ -1,4 +1,4 @@
-화상 캐리커처 플랫폼 Sketch Me
+# 화상 캐리커처 플랫폼 Sketch Me
 # Link
 [Notion](https://www.notion.so/0f2e0b26976d46ad97065bbc6050cd99?pvs=21)
 
@@ -42,8 +42,8 @@
 | Infra            | Docker, Docker Compose, Shell script                       |
 
 # 시연
-![](attachments/스케치1.gif)
-![](attachments/스케치2.gif)
+<!--![](attachments/스케치1.gif)-->
+<!--![](attachments/스케치2.gif)-->
 
 # 화면
 [Click](화면.md)
