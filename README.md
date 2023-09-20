@@ -42,8 +42,8 @@
 | Infra            | Docker, Docker Compose, Shell script                       |
 
 # 시연
-<!--![](attachments/스케치1.gif)-->
-<!--![](attachments/스케치2.gif)-->
+![](attachments/스케치1.gif)
+![](attachments/스케치2.gif)
 
 # 화면
 [Click](화면.md)
